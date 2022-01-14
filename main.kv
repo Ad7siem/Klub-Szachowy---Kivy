@@ -1,0 +1,229 @@
+<MyLayout>
+	do_default_tab: False
+	tab_width: 150
+	tab_pos: 'top_mid'
+
+	TabbedPanelItem:
+		text: 'Gry Planszowe'
+		GridLayout:
+			cols: 3
+			size: root.width, root.height
+
+			Label:
+				text: 'Lista Gier'
+				font_size: 32
+				width: 400
+
+			Accordion:
+				orientation: 'vertical'
+
+				AccordionItem:
+					title: 'Nowa Gra Planszowa'
+					GridLayout:
+						cols: 2
+
+						Label: 
+							text: 'Nowa Gra Planszowa'
+							font_size: 16
+						TextInput:
+							multiline: False
+							font_size: 15
+
+						Label:
+							text: 'Typ Gry [P/D]:'
+							font_size: 16
+						TextInput:
+							multiline: False
+							font_size: 15
+
+						Label:
+							text: 'Minimalna ilość graczy:'
+							font_size: 16
+						TextInput:
+							multiline: False
+							font_size: 15
+
+						Label:
+							text: 'Maksymalna ilość graczy:'
+							font_size: 16
+						TextInput:
+							multiline: False
+							font_size: 15
+
+						Label:
+							text: 'Czas Gry'
+							font_size: 16
+						TextInput:
+							multiline: False
+							font_size: 15
+
+						Label:
+							text: 'Właściciel'
+							font_size: 16
+						TextInput:
+							multiline: False
+							font_size: 15
+
+				# AccordionItem:
+				# 	title: 'Edytuj Grę Planszową'
+				# 	Label:
+				# 		text: 'Edytuj Grę Planszową'
+				# 		font_size: 32
+				# AccordionItem:
+				# 	title: 'Usuń Grę Planszową'
+				# 	Label:
+				# 		text: 'Usuń Grę Planszową'
+				# 		font_size: 32
+				# AccordionItem:
+				# 	title: 'Pomoc'
+				# 	Label:
+				# 		text: 'Pomoc'
+				# 		font_size: 32
+
+	TabbedPanelItem:
+		text: 'Wyniki rozgrywek'
+		Accordion:
+			orientation: 'vertical'
+
+			AccordionItem:
+				title: 'Dodawanie Wyników Dnia'
+				Label:
+					text: 'Dodawanie Wyników Dnia'
+					font_size: 32
+
+			AccordionItem:
+				title: 'Tablica Wyników'
+				Label:
+					text: 'Tablica Wyników'
+					font_size: 32
+
+	TabbedPanelItem:
+		orientation: 'vertical'
+		text: 'Ustawienia'
+		size: root.width, root.height
+
+		BoxLayout:
+			orientation: 'vertical'
+
+			padding: 20
+
+			BoxLayout:
+				id: my_boxlayout
+				disabled: True
+				orientation: 'vertical'
+
+				Label:
+					id: my_label
+					font_size: 24
+					text: 'Ustawienia zablokowane'
+
+				BoxLayout:
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						id: my_label2
+						# =====================================================
+						halign: 'left'
+						# nie wiem dlaczego to nie chce działać
+						# =====================================================
+						font_size: 16
+						text: 'Link do arkuszu statystyk:'
+						size_hint: .6, 1
+
+					TextInput:
+						multiline: False
+						font_size: 15
+						size_hint: 1, 1
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						id: my_label2
+						font_size: 16
+						text: 'Link do arkuszu z planszówkami:'
+						size_hint: .6, 1
+
+					TextInput:
+						multiline: False
+						font_size: 15
+						size_hint: 1, 1
+
+				Splitter:
+					sizable_from: 'bottom'
+					disabled: True
+					BoxLayout:
+
+				BoxLayout:
+					size_hint: 1, 0.5
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						id: my_label2
+						font_size: 16
+						text: 'Podaj nazwę arkusza z graczy:'
+
+					TextInput:
+						multiline: False
+						font_size: 15
+						size_hint: .5, 1
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						id: my_label2
+						font_size: 16
+						text: 'Podaj nazwę arkusza z listą gier:'
+
+					TextInput:
+						multiline: False
+						font_size: 15
+						size_hint: .5, 1
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						id: my_label2
+						font_size: 16
+						halign: 'left'
+						text: 'Podaj nazwę arkusza z wynikami dnia:'
+
+					TextInput:
+						multiline: False
+						font_size: 15
+						size_hint: .5, 1
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						id: my_label2
+						font_size: 16
+						text: 'Podaj nazwę arkusza ze spisem wszystkich planszówek:'
+
+					TextInput:
+						multiline: False
+						font_size: 15
+						size_hint: .5, 1
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						id: my_label2
+						font_size: 16
+						text: 'Podaj nazwę arkusza z tablicami wyników:'
+
+					TextInput:
+						multiline: False
+						font_size: 15
+						size_hint: .5, 1
+
+
+			Switch:
+				id: my_switch
+				active: False
+				on_active: root.switch_click(self, self.active)
+				
+
+
+			
