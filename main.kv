@@ -1,3 +1,144 @@
+#: import Factory kivy.factory.Factory
+
+<NewGame@Popup>
+	auto_dismiss: False
+	size_hint: .6, .8
+	pos_hint: {'x': .2 , 'top': .9}
+
+	title: 'Nowa Gra Planszowa'
+	
+	GridLayout:
+		size: root.width, root.height
+		cols: 1
+		GridLayout:
+			cols: 2
+			Label:
+				text: 'Nazwa Gry:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				fonr_size: 15
+
+			Label:
+				text: 'Typ Gry [P/D]:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Minimalna ilość graczy:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Maksymalna ilość graczy:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Czas Gry'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Właściciel'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+		Button:
+			size_hint: .5, .5 
+			text: 'Zapisz'
+			font_size: 16
+			on_release: root.dismiss()
+
+<EditGame@Popup>
+	auto_dismiss: False
+	size_hint: .6, .8
+	pos_hint: {'x': .2 , 'top': .9}
+
+	title: 'Edytuj Grę Planszową'
+	
+	GridLayout:
+		size: root.width, root.height
+		cols: 1
+		GridLayout:
+			cols: 2
+			Label:
+				text: 'Nazwa Gry:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				fonr_size: 15
+
+			Label:
+				text: 'Typ Gry [P/D]:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Minimalna ilość graczy:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Maksymalna ilość graczy:'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Czas Gry'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+			Label:
+				text: 'Właściciel'
+				font_size: 16
+			TextInput:
+				multiline: False
+				font_size: 15
+
+		Button:
+			size_hint: .5, .5 
+			text: 'Zapisz'
+			font_size: 16
+			on_release: root.dismiss()
+
+<DeleteGame@Popup>
+	auto_dismiss: False
+	size_hint: .6, .2
+	pos_hint: {'x': .2, 'top': .9}
+
+	title: 'Usuń grę'
+
+	BoxLayout:
+		orientation: 'horizontal'
+
+		Button:
+			text: 'TAK'
+			font_size: 16
+			on_release: root.dismiss()
+		Button:
+			text: "NIE"
+			font_size: 16
+			on_release: root.dismiss()
+
 <MyLayout>
 	do_default_tab: False
 	tab_width: 150
@@ -5,81 +146,41 @@
 
 	TabbedPanelItem:
 		text: 'Gry Planszowe'
-		GridLayout:
-			cols: 3
+		FloatLayout:			
 			size: root.width, root.height
 
-			Label:
-				text: 'Lista Gier'
-				font_size: 32
-				width: 400
+			BoxLayout:	
+				size_hint: .7, 1
+				pos_hint: {'x':0 , 'top': 1}
 
-			Accordion:
-				orientation: 'vertical'
+				padding: 20
 
-				AccordionItem:
-					title: 'Nowa Gra Planszowa'
-					GridLayout:
-						cols: 2
+				Button: 
+					text: "Lista Gier"
+					font_size: 32
+					background_color: 1,0,0,1
+					
+			Button:
+				text: 'Nowa Gra planszowa'
+				pos_hint: {'x':.725 , 'top': .9}
+				size_hint: .25, .07
+				font_size: 14
+				on_release: Factory.NewGame().open()
 
-						Label: 
-							text: 'Nowa Gra Planszowa'
-							font_size: 16
-						TextInput:
-							multiline: False
-							font_size: 15
+			Button:
+				text: 'Edytuj Grę Planszową'
+				pos_hint: {'x':.725, 'top': 0.8}
+				size_hint: .25, .07
+				font_size: 14
+				on_release: Factory.EditGame().open()
 
-						Label:
-							text: 'Typ Gry [P/D]:'
-							font_size: 16
-						TextInput:
-							multiline: False
-							font_size: 15
-
-						Label:
-							text: 'Minimalna ilość graczy:'
-							font_size: 16
-						TextInput:
-							multiline: False
-							font_size: 15
-
-						Label:
-							text: 'Maksymalna ilość graczy:'
-							font_size: 16
-						TextInput:
-							multiline: False
-							font_size: 15
-
-						Label:
-							text: 'Czas Gry'
-							font_size: 16
-						TextInput:
-							multiline: False
-							font_size: 15
-
-						Label:
-							text: 'Właściciel'
-							font_size: 16
-						TextInput:
-							multiline: False
-							font_size: 15
-
-				# AccordionItem:
-				# 	title: 'Edytuj Grę Planszową'
-				# 	Label:
-				# 		text: 'Edytuj Grę Planszową'
-				# 		font_size: 32
-				# AccordionItem:
-				# 	title: 'Usuń Grę Planszową'
-				# 	Label:
-				# 		text: 'Usuń Grę Planszową'
-				# 		font_size: 32
-				# AccordionItem:
-				# 	title: 'Pomoc'
-				# 	Label:
-				# 		text: 'Pomoc'
-				# 		font_size: 32
-
+			Button:
+				text: 'Usuń Grę Planszową'
+				pos_hint: {'x':.725 , 'top': 0.7}
+				size_hint: .25, .07 
+				font_size: 14
+				on_release: Factory.DeleteGame().open()
+				
 	TabbedPanelItem:
 		text: 'Wyniki rozgrywek'
 		Accordion:
